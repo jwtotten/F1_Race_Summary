@@ -1,0 +1,7 @@
+[project]
+name = "f1-race-summary"
+version = "0.1.0"
+description = "Automated F1 race weekend stats summaries"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
