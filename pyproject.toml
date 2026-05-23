@@ -4,4 +4,6 @@ version = "0.1.0"
 description = "Automated F1 race weekend stats summaries"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "fastf1>=3.8.3",
+]
