@@ -31,10 +31,26 @@ from . import register
 from .base import BaseCollector, MetricResult
 from ..session_loader import RaceSession
 
+import matplotlib.pyplot as plt
+import fastf1.plotting 
+
 
 @register
 class Top10Collector(BaseCollector):
     name = "top10"
 
     def collect(self, session: RaceSession) -> MetricResult:
-        raise NotImplementedError
+        
+        fastf1.plotting.setup_mpl(mpl_timedelta_support=False, color_scheme='fastf1')
+
+        fig, ax = plt.subplots(figsize=(8, 4.9))
+
+        race_results = {}
+        for driver in session.raw.drivers:
+            driver_finish_pos = session.results.Position
+            race_results[driver] = driver_finish_pos
+
+        ax.plot(race_results.keys(), race_results.values(), marker='o', linestyle='-', color='blue')
+        plt.tight_layout()
+        
+        return MetricResult(name=self.name, data=fig)

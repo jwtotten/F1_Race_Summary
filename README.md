@@ -1,6 +1,6 @@
 # 🏎️ F1 Race Summary
 
-> *"To finish first, first you must finish."* — Niki Lauda
+> _"To finish first, first you must finish."_ — Niki Lauda
 
 Automated post-race stats summaries for F1 weekends. Pulls timing, tyre, and position data from [fastf1](https://docs.fastf1.dev/) and assembles a structured report you can slice any way you like.
 
@@ -10,13 +10,13 @@ Automated post-race stats summaries for F1 weekends. Pulls timing, tyre, and pos
 
 > Did you know? The fastest recorded pit stop in F1 history is **1.80 seconds** — Red Bull Racing at the 2023 São Paulo Grand Prix. This tool won't make your pit stops faster, but it will tell you everyone else's tyre strategy.
 
-| Metric | Description | Status |
-|--------|-------------|--------|
-| 🏁 Top 10 | Finishing positions, teams, and gaps for the top 10 | 🚧 stub |
-| 🟡 Tyre Strategy | Compounds and stint lengths per driver | 🚧 stub |
-| 💨 Overtakes | Total overtake count + detail per event | 🚧 stub |
-| 📈 Position Chart | matplotlib figure — driver position vs lap number | 🔄 in progress |
-| ⬆️ Positions Delta | Positions gained or lost from grid to finish | 🚧 stub |
+| Metric             | Description                                         | Status         |
+| ------------------ | --------------------------------------------------- | -------------- |
+| 🏁 Top 10          | Finishing positions, teams, and gaps for the top 10 | 🔄 in progress |
+| 🟡 Tyre Strategy   | Compounds and stint lengths per driver              | 🚧 stub        |
+| 💨 Overtakes       | Total overtake count + detail per event             | 🚧 stub        |
+| 📈 Position Chart  | matplotlib figure — driver position vs lap number   | 🔄 in progress |
+| ⬆️ Positions Delta | Positions gained or lost from grid to finish        | 🚧 stub        |
 
 ---
 
@@ -37,19 +37,19 @@ uv sync
 uv run python main.py --year 2024 --gp Monaco --session R
 ```
 
-| Argument | Description | Example |
-|----------|-------------|---------|
-| `--year` | Season year | `2024` |
-| `--gp` | Grand Prix name | `Monaco`, `Silverstone`, `Monza` |
-| `--session` | Session type | `R` (race), `Q` (quali), `FP1`, `FP2`, `FP3` |
+| Argument    | Description     | Example                                      |
+| ----------- | --------------- | -------------------------------------------- |
+| `--year`    | Season year     | `2024`                                       |
+| `--gp`      | Grand Prix name | `Monaco`, `Silverstone`, `Monza`             |
+| `--session` | Session type    | `R` (race), `Q` (quali), `FP1`, `FP2`, `FP3` |
 
-> *F1 has 20 rounds per season across 5 continents. This tool covers all of them — as long as fastf1 has the data.*
+> _F1 has 20 rounds per season across 5 continents. This tool covers all of them — as long as fastf1 has the data._
 
 ---
 
 ## 🤝 Contributing — Adding a New Metric
 
-> *"The details are not the details. They make the design."* — not an F1 quote, but it applies.
+> _"The details are not the details. They make the design."_ — not an F1 quote, but it applies.
 
 The collector system is plug-and-play. Adding a new metric touches 3 files and takes about 5 minutes.
 
@@ -97,4 +97,4 @@ Full architecture details: [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ---
 
-*Built with 🏎️ and too much race-day caffeine.*
+_Built with 🏎️ and too much race-day caffeine._
