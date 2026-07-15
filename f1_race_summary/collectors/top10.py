@@ -40,17 +40,23 @@ class Top10Collector(BaseCollector):
     name = "top10"
 
     def collect(self, session: RaceSession) -> MetricResult:
-        
         fastf1.plotting.setup_mpl(mpl_timedelta_support=False, color_scheme='fastf1')
 
+        df = session.results[["Position", "Abbreviation", "TeamName", "Time"]].head(10)
+
         fig, ax = plt.subplots(figsize=(8, 4.9))
+        ax.axis('off')
 
-        race_results = {}
-        for driver in session.raw.drivers:
-            driver_finish_pos = session.results.Position
-            race_results[driver] = driver_finish_pos
-
-        ax.plot(race_results.keys(), race_results.values(), marker='o', linestyle='-', color='blue')
-        plt.tight_layout()
+        table = ax.table(
+            cellText=df.values,
+            colLabels=df.columns,
+            cellLoc='center',
+            loc='center'
+        )
+        table.auto_set_font_size(False)
+        table.set_fontsize(15)
+        table.auto_set_column_width(col=list(range(len(df.columns))))
         
+        plt.tight_layout()
+
         return MetricResult(name=self.name, data=fig)
