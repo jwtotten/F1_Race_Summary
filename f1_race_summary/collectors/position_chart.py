@@ -38,10 +38,14 @@ class PositionChartCollector(BaseCollector):
 
         fig, ax = plt.subplots(figsize=(8, 4.9))
         for driver in session.raw.drivers:
+
+            # Collecting the lap data for each driver
             driver_laps = session.laps.pick_driver(driver)
             driver_abbr = driver_laps["Driver"].iloc[0]
-            drvier_style = fastf1.plotting.get_driver_style(identifier=driver_abbr, style=['color', 'linestyle'], session=session.raw)
-            ax.plot(driver_laps["LapNumber"], driver_laps["Position"], label=driver_abbr, **drvier_style)
+            driver_style = fastf1.plotting.get_driver_style(identifier=driver_abbr, style=['color', 'linestyle'], session=session.raw)
+
+            # Plotting the lap data for each driver
+            ax.plot(driver_laps["LapNumber"], driver_laps["Position"], label=driver_abbr, **driver_style)
 
         ax.set_ylim([20.5, 0.5])
         ax.set_yticks([1, 5, 10, 15, 20])
